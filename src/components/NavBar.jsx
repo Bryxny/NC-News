@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function NavBar() {
   return (
-    <ul>
+    <ul className="nav-bar">
       <li>
         <Link to="/">home</Link>
       </li>
