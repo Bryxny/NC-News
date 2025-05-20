@@ -25,12 +25,12 @@ body {
   display: flex;
 }
 
-a {
+.nav-bar a {
   text-decoration: none;
   color: rgb(255, 255, 255);
 }
 
-a:hover {
+.nav-bar a:hover {
   color: pink;
 }
 
@@ -81,4 +81,25 @@ a:hover {
   height: 200px;
   border-radius: 8px;
   object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(45, 45, 45);
+}
+
+a:hover {
+  color: rgb(0, 0, 0);
+}
+
+.article-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 500px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.article-detail {
 }

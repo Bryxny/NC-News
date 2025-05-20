@@ -9,3 +9,9 @@ export const fetchArticles = (params) => {
     return response.data.articles;
   });
 };
+
+export const fetchArticle = (article_id) => {
+  return api.get(`/articles/${article_id}`).then((response) => {
+    return response.data.article;
+  });
+};
