@@ -1,10 +1,10 @@
-import dayjs from "dayjs";
 import { Link } from "react-router";
+import dayjs from "dayjs";
 
 export default function ArticleCard({ article }) {
-  const articleid = article.article_id;
+  const article_id = article.article_id;
   return (
-    <Link to={`/articles/${articleid}`}>
+    <Link to={`/articles/${article_id}`}>
       <li className="article-card">
         <div className="article-text">
           <p>{article.topic}</p>

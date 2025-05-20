@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Topics from "./pages/Topics";
 import Articles from "./pages/Articles";
 import Profile from "./pages/Profile";
-import ArticleDetail from "./pages/ArticleDetail";
+import Article from "./pages/Article";
 import { Routes, Route } from "react-router";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/topics" element={<Topics />} />
         <Route path="/articles" element={<Articles />} />
-        <Route path="/articles/:article_id" element={<ArticleDetail />} />
+        <Route path="/articles/:article_id" element={<Article />} />
         <Route path="/users/:username" element={<Profile />} />
       </Routes>
     </>
