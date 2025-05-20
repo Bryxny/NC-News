@@ -96,10 +96,41 @@ a:hover {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 500px;
-  height: 200px;
+  max-width: 600px;
   margin: 0 auto;
 }
+.article-body {
+  text-align: left;
+}
 
-.article-detail {
+.comment-box {
+  width: 100vw;
+  background-color: rgb(229, 229, 229);
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+
+.comment-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-section button {
+  align-self: center;
+  width: 250px;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.comment-card {
+  border-bottom: 2px solid #797979;
+  text-align: left;
 }
