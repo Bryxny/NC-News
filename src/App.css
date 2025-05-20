@@ -39,18 +39,18 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem; /* Optional: spacing between cards */
-  max-width: 1024px; /* or any max width you prefer */
+  gap: 1rem;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 1rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
   .article-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
-    gap: 1.5rem 2rem; /* vertical and horizontal gaps */
+    gap: 1.5rem 2rem;
   }
 }
 .article-card {

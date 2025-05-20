@@ -1,3 +1,13 @@
+import { useArticles } from "../components/useArticles";
+import ArticlesList from "../components/articlesList";
+
 export default function Home() {
-  return <h1>home</h1>;
+  const { articles, loading } = useArticles({ limit: 4 });
+
+  return (
+    <>
+      <h1>Recent Articles</h1>
+      {loading ? <p>loading</p> : <ArticlesList articles={articles} />}
+    </>
+  );
 }

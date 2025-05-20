@@ -11,6 +11,8 @@ export default function NavBar() {
       </li>
       <li>
         <Link to="/articles">
+          view all
+          {"   "}
           <img
             src="src/assets/search-icon-2048x2048-cmujl7en.png"
             width="20"

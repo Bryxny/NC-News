@@ -1,24 +1,13 @@
-import { fetchArticles } from "../utils/FetchData";
-import { useState, useEffect } from "react";
-import ArticleCard from "../components/ArticleCard";
+import { useArticles } from "../components/useArticles";
+import ArticlesList from "../components/articlesList";
 
 export default function Articles() {
-  const [articles, setArticles] = useState([]);
-
-  useEffect(() => {
-    fetchArticles().then((data) => {
-      setArticles(data);
-    });
-  }, []);
+  const { articles, loading } = useArticles({});
 
   return (
     <>
       <h1>Articles</h1>
-      <ul className="article-list">
-        {articles.map((article) => {
-          return <ArticleCard key={article.article_id} article={article} />;
-        })}
-      </ul>
+      {loading ? <p>loading</p> : <ArticlesList articles={articles} />}
     </>
   );
 }
