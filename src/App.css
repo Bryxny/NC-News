@@ -134,3 +134,14 @@ a:hover {
   border-bottom: 2px solid #797979;
   text-align: left;
 }
+
+.votes-box {
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}

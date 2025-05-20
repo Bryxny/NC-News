@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
-import { useState } from "react";
 import Comments from "./Comments";
+import Voting from "./Voting";
 
 export default function ArticleDetail({ article }) {
   return (
@@ -13,8 +13,8 @@ export default function ArticleDetail({ article }) {
         </p>
         <img src={article.article_img_url}></img>
         <p className="article-body">{article.body}</p>
-        <p>votes bar placeholder</p>
-      </div>{" "}
+        <Voting article={article} />
+      </div>
       <div className="comment-box">
         <div className="comment-section">
           <p>post comment placeholder</p>

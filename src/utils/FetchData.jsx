@@ -21,3 +21,13 @@ export const fetchComments = (article_id) => {
     return response.data.comments;
   });
 };
+
+export const patchArticleVote = (article_id, votes) => {
+  console.log(article_id, votes);
+  return api
+    .patch(`/articles/${article_id}`, { inc_votes: votes })
+    .then(() => {
+      return;
+    })
+    .catch(console.log);
+};
