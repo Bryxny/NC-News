@@ -1,5 +1,5 @@
 import { useArticles } from "../components/useArticles";
-import ArticlesList from "../components/articlesList";
+import ArticlesList from "../components/ArticlesList";
 
 export default function Articles() {
   const { articles, loading } = useArticles({});

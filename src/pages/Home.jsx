@@ -1,5 +1,5 @@
 import { useArticles } from "../components/useArticles";
-import ArticlesList from "../components/articlesList";
+import ArticlesList from "../components/ArticlesList";
 
 export default function Home() {
   const { articles, loading } = useArticles({ limit: 4 });
