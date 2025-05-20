@@ -1,15 +1,18 @@
 import dayjs from "dayjs";
+import { Link } from "react-router";
 
 export default function ArticleCard({ article }) {
-  const date = dayjs(article.created_at).format("MMMM D, YYYY h:mm A");
+  const articleid = article.article_id;
   return (
-    <li className="article-card">
-      <div className="article-text">
-        <p>{article.topic}</p>
-        <h3>{article.title}</h3>
-        <p>{date}</p>
-      </div>
-      <img src={article.article_img_url} />
-    </li>
+    <Link to={`/articles/${articleid}`}>
+      <li className="article-card">
+        <div className="article-text">
+          <p>{article.topic}</p>
+          <h3>{article.title}</h3>
+          <p>{dayjs(article.created_at).format("MMMM D, YYYY h:mm A")}</p>
+        </div>
+        <img src={article.article_img_url} />
+      </li>
+    </Link>
   );
 }

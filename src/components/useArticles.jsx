@@ -6,7 +6,6 @@ export function useArticles(queryparams) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
     fetchArticles(queryparams).then((data) => {
       setArticles(data);
       setLoading(false);
