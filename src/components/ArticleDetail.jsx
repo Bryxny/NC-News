@@ -1,8 +1,28 @@
 import dayjs from "dayjs";
 import Comments from "./Comments";
 import Voting from "./Voting";
+import PostComment from "./PostComment";
+import { useState, useEffect } from "react";
+import { fetchComments } from "../utils/FetchData";
 
 export default function ArticleDetail({ article }) {
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [commentCount, setCommentCount] = useState(article.comment_count);
+
+  const updateComments = (newComment = false) => {
+    setLoading(true);
+    fetchComments(article.article_id).then((response) => {
+      setComments(response);
+      setLoading(false);
+      if (newComment) setCommentCount((prev) => prev + 1);
+    });
+  };
+
+  useEffect(() => {
+    updateComments();
+  }, [article.article_id]);
+
   return (
     <>
       <div className="article-detail">
@@ -17,11 +37,11 @@ export default function ArticleDetail({ article }) {
       </div>
       <div className="comment-box">
         <div className="comment-section">
-          <p>post comment placeholder</p>
-          <p>{article.comment_count} comments</p>{" "}
+          <PostComment updateComments={updateComments} />
           <Comments
-            count={article.comment_count}
-            article_id={article.article_id}
+            comments={comments}
+            count={commentCount}
+            loading={loading}
           />
         </div>
       </div>

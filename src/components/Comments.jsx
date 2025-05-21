@@ -2,22 +2,15 @@ import { fetchComments } from "../utils/FetchData";
 import CommentCard from "./CommentCard";
 import { useState, useEffect } from "react";
 
-export default function Comments({ count, article_id }) {
+export default function Comments({ count, comments, loading }) {
   if (!count) return <p>no comments</p>;
+  if (loading) return <p>Loading comments...</p>;
 
-  const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [showComments, setShowComments] = useState(false);
-
-  useEffect(() => {
-    fetchComments(article_id).then((response) => {
-      setComments(response);
-      setLoading(false);
-    });
-  }, [article_id]);
 
   return (
     <>
+      <p>{count} comments</p>
       {showComments ? (
         <>
           <button
