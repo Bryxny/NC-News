@@ -5,9 +5,14 @@ const api = axios.create({
 });
 
 export const fetchArticles = (params) => {
-  return api.get("/articles", { params }).then((response) => {
-    return response.data.articles;
-  });
+  return api
+    .get("/articles", { params })
+    .then((response) => {
+      return response.data.articles;
+    })
+    .catch((err) => {
+      throw err;
+    });
 };
 
 export const fetchArticle = (article_id) => {

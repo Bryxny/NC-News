@@ -2,12 +2,15 @@ import { useArticles } from "../hooks/useArticles";
 import ArticlesList from "../components/ArticlesList";
 
 export default function Home() {
-  const { articles, loading } = useArticles({ limit: 4 });
+  const { articles, loading, error } = useArticles({ limit: 4 });
+
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>error</p>;
 
   return (
     <>
       <h1>Recent Articles</h1>
-      {loading ? <p>loading</p> : <ArticlesList articles={articles} />}
+      <ArticlesList articles={articles} />
     </>
   );
 }

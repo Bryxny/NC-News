@@ -177,3 +177,10 @@ a:hover {
   position: absolute;
   right: -40px;
 }
+
+.search img {
+  margin-right: 5px;
+  margin-top: 2px; /* adjust value as needed */
+  position: relative;
+  top: 2px; /* alternate method */
+}

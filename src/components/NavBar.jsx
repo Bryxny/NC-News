@@ -8,20 +8,29 @@ export default function NavBar() {
   return (
     <ul className="nav-bar">
       <li>
-        <Link to="/">home</Link>
+        <Link to="/">
+          <img src="src/assets/25694.png" height="30px" />
+        </Link>
       </li>
       <li>
-        <Link to="/topics">topics placeholder</Link>
+        <Link to="/articles?topic=coding">coding</Link>
       </li>
       <li>
+        <Link to="/articles?topic=football">football</Link>
+      </li>
+      <li>
+        <Link to="/articles?topic=cooking">cooking</Link>
+      </li>
+      <li>
+        <Link to="/topics">more</Link>
+      </li>
+      <li className="search">
         <Link to="/articles">
-          view all
-          {/* {"   "}
           <img
             src="src/assets/search-icon-2048x2048-cmujl7en.png"
-            width="20"
-            height="20"
-          /> */}
+            height="20px"
+          />
+          search all
         </Link>
       </li>
       {user ? (
