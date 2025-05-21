@@ -1,9 +1,12 @@
 import { patchArticleVote } from "../utils/FetchData";
 import { useState } from "react";
+import { UserContext } from "../contexts/UserContext";
+import { useContext } from "react";
 export default function Voting({ article }) {
   const [hasVoted, setHasVoted] = useState(false);
   const [votes, setVotes] = useState(article.votes);
   const [voteValue, setVoteValue] = useState(0);
+  const { user } = useContext(UserContext);
 
   function handleVote(vote) {
     if (!hasVoted) {
@@ -22,26 +25,35 @@ export default function Voting({ article }) {
       patchArticleVote(article.article_id, 2 * vote);
     }
   }
+  console.log(voteValue);
   return (
     <>
       <div className="votes-box">
         <p>{votes} votes</p>
-        <button
-          onClick={() => {
-            handleVote(1);
-          }}
-        >
-          upvote
-        </button>
-        <button
-          onClick={() => {
-            handleVote(-1);
-          }}
-        >
-          downvote
-        </button>
+        {!user ? (
+          <p>sign in to vote</p>
+        ) : (
+          <div className="votes-box">
+            <button
+              className={voteValue === 1 ? "clicked" : "unclicked"}
+              onClick={() => {
+                handleVote(1);
+              }}
+            >
+              upvote
+            </button>
+            <button
+              className={voteValue === -1 ? "clicked" : "unclicked"}
+              onClick={() => {
+                handleVote(-1);
+              }}
+            >
+              downvote
+            </button>
+            {hasVoted && <p className="voted">voted!</p>}
+          </div>
+        )}
       </div>
-      {hasVoted ? <p>voted!</p> : null}
     </>
   );
 }

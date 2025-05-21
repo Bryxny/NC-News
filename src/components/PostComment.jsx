@@ -16,7 +16,7 @@ export default function PostComment({ updateComments }) {
     if (comment.length <= 10) return setError("10 characters minimum");
 
     setLoading(true);
-    const body = { body: comment, username: user };
+    const body = { body: comment, username: user.username };
     postComment(article_id, body)
       .then(() => {
         setComment("");

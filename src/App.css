@@ -137,17 +137,6 @@ a:hover {
   text-align: left;
 }
 
-.votes-box {
-  max-width: 200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
 .login-dropdown {
   display: flex;
   flex-direction: row;
@@ -157,6 +146,34 @@ a:hover {
 }
 
 .error {
-  color: rgb(211, 211, 211);
+  color: rgb(255, 255, 255);
   padding: 0;
+}
+
+.votes-box {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  position: relative;
+}
+.clicked {
+  background-color: rgb(88, 88, 88);
+  color: white;
+  border: none;
+  padding: 8px;
+}
+.unclicked {
+  background-color: rgb(213, 213, 213);
+  border: none;
+  padding: 8px;
+}
+.voted {
+  position: absolute;
+  right: -40px;
 }
