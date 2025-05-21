@@ -1,4 +1,4 @@
-import { useArticles } from "../components/useArticles";
+import { useArticles } from "../hooks/useArticles";
 import ArticlesList from "../components/ArticlesList";
 
 export default function Home() {

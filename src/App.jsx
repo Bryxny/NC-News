@@ -7,10 +7,11 @@ import Articles from "./pages/Articles";
 import Profile from "./pages/Profile";
 import Article from "./pages/Article";
 import { Routes, Route } from "react-router";
+import { UserProvider } from "./contexts/UserContext";
 
 function App() {
   return (
-    <>
+    <UserProvider>
       <NavBar></NavBar>
       <Routes className="content">
         <Route path="/" element={<Home />} />
@@ -19,7 +20,7 @@ function App() {
         <Route path="/articles/:article_id" element={<Article />} />
         <Route path="/users/:username" element={<Profile />} />
       </Routes>
-    </>
+    </UserProvider>
   );
 }
 

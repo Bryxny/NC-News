@@ -1,6 +1,10 @@
 import { Link } from "react-router";
+import Login from "./Login";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 export default function NavBar() {
+  const { user } = useContext(UserContext);
   return (
     <ul className="nav-bar">
       <li>
@@ -20,6 +24,13 @@ export default function NavBar() {
           /> */}
         </Link>
       </li>
+      {user ? (
+        <li>profile</li>
+      ) : (
+        <li>
+          <Login></Login>
+        </li>
+      )}
     </ul>
   );
 }
