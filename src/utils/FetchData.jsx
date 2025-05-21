@@ -29,7 +29,9 @@ export const patchArticleVote = (article_id, votes) => {
     .then(() => {
       return;
     })
-    .catch(console.log);
+    .catch((err) => {
+      throw err;
+    });
 };
 
 export const postComment = (article_id, body) => {
@@ -39,5 +41,18 @@ export const postComment = (article_id, body) => {
     .then((response) => {
       console.log(response);
     })
-    .catch(console.log);
+    .catch((err) => {
+      throw err;
+    });
+};
+
+export const fetchUser = (username) => {
+  return api
+    .get(`/users/${username}`)
+    .then((response) => {
+      return response.data.user;
+    })
+    .catch((err) => {
+      throw err;
+    });
 };
