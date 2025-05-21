@@ -31,3 +31,13 @@ export const patchArticleVote = (article_id, votes) => {
     })
     .catch(console.log);
 };
+
+export const postComment = (article_id, body) => {
+  console.log(body);
+  return api
+    .post(`/articles/${article_id}/comments`, body)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch(console.log);
+};
