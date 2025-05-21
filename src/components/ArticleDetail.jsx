@@ -9,13 +9,15 @@ export default function ArticleDetail({ article }) {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [commentCount, setCommentCount] = useState(article.comment_count);
+  const [showComments, setShowComments] = useState(false);
 
-  const updateComments = (newComment = false) => {
+  const updateComments = (newComment = false, deleted = false) => {
     setLoading(true);
     fetchComments(article.article_id).then((response) => {
       setComments(response);
       setLoading(false);
       if (newComment) setCommentCount((prev) => prev + 1);
+      if (deleted) setCommentCount((prev) => prev - 1);
     });
   };
 
@@ -42,6 +44,9 @@ export default function ArticleDetail({ article }) {
             comments={comments}
             count={commentCount}
             loading={loading}
+            updateComments={updateComments}
+            showComments={showComments}
+            setShowComments={setShowComments}
           />
         </div>
       </div>
