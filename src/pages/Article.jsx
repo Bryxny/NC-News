@@ -15,13 +15,5 @@ export default function Article() {
     });
   }, [article_id]);
 
-  return (
-    <>
-      {loading ? (
-        <p>loading</p>
-      ) : (
-        <ArticleDetail setLoading={setLoading} article={article} />
-      )}
-    </>
-  );
+  return <>{loading ? <p>loading</p> : <ArticleDetail article={article} />}</>;
 }

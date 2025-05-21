@@ -1,12 +1,16 @@
-import { fetchComments } from "../utils/FetchData";
 import CommentCard from "./CommentCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function Comments({ count, comments, loading }) {
+export default function Comments({
+  count,
+  comments,
+  loading,
+  updateComments,
+  setShowComments,
+  showComments,
+}) {
   if (!count) return <p>no comments</p>;
   if (loading) return <p>Loading comments...</p>;
-
-  const [showComments, setShowComments] = useState(false);
 
   return (
     <>
@@ -21,7 +25,13 @@ export default function Comments({ count, comments, loading }) {
             Hide Comments
           </button>
           {comments.map((comment) => {
-            return <CommentCard key={comment.comment_id} comment={comment} />;
+            return (
+              <CommentCard
+                key={comment.comment_id}
+                comment={comment}
+                updateComments={updateComments}
+              />
+            );
           })}
         </>
       ) : (
