@@ -13,6 +13,9 @@ export default function ArticlesList({ articles }) {
                 <p>{article.topic}</p>
                 <h3>{article.title}</h3>
                 <p>{dayjs(article.created_at).format("MMMM D, YYYY h:mm A")}</p>
+                <p>
+                  {article.comment_count} comments {article.votes} votes
+                </p>
               </div>
               <img src={article.article_img_url} />
             </li>
