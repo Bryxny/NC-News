@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
-import { fetchArticles } from "../utils/FetchData";
 
-export function useArticles(queryparams) {
-  const [articles, setArticles] = useState([]);
+export function useDataFetch(fetchFunction, queryparams) {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-
   useEffect(() => {
     setLoading(true);
     setError(false);
-    fetchArticles(queryparams)
-      .then((data) => {
-        if (!data) setError(true);
-        setArticles(data);
+    fetchFunction(queryparams)
+      .then((response) => {
+        if (!response) setError(true);
+        setData(response);
         setLoading(false);
       })
       .catch((err) => {
@@ -21,5 +19,5 @@ export function useArticles(queryparams) {
       });
   }, [JSON.stringify(queryparams)]);
 
-  return { articles, loading, error };
+  return { data, loading, error };
 }

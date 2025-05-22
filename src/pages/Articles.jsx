@@ -1,11 +1,16 @@
-import { useArticles } from "../hooks/useArticles";
+import { useDataFetch } from "../hooks/useDataFetch";
 import ArticlesList from "../components/ArticlesList";
 import { useSearchParams } from "react-router";
+import { fetchArticles } from "../utils/FetchData";
 
 export default function Articles() {
   const [searchParams] = useSearchParams();
   const topic = searchParams.get("topic");
-  const { articles, loading, error } = useArticles({ topic });
+  const {
+    data: articles,
+    loading,
+    error,
+  } = useDataFetch(fetchArticles, { topic });
 
   if (loading) return <p>loading...</p>;
   if (error) return <p>no articles found</p>;
