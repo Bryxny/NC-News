@@ -24,7 +24,7 @@ export default function Home() {
       <h1>Recent Articles</h1>
       <ArticlesList articles={articles} />
       <h2>Our Writers</h2>
-      <ul>
+      <ul className="writers">
         {users.map((user) => {
           return (
             <Link to={`users/${user.username}`} key={user.username}>

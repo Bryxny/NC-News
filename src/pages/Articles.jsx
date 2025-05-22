@@ -1,6 +1,7 @@
 import { useDataFetch } from "../hooks/useDataFetch";
 import ArticlesList from "../components/ArticlesList";
 import { useSearchParams } from "react-router";
+import { useState } from "react";
 import { fetchArticles } from "../utils/api.js";
 
 export default function Articles() {
@@ -8,6 +9,7 @@ export default function Articles() {
   const topic = searchParams.get("topic");
   const sortBy = searchParams.get("sort_by") || "created_at";
   const orderBy = searchParams.get("order_by") || "desc";
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (e) => {
     setSearchParams((prev) => {
@@ -17,16 +19,18 @@ export default function Articles() {
     });
   };
 
-  const {
-    data: articles,
-    loading,
-    error,
-  } = useDataFetch(fetchArticles, {
+  const { data, loading, error } = useDataFetch(fetchArticles, {
     topic,
     sort_by: sortBy,
     order_by: orderBy,
     limit: 1000,
   });
+
+  const articles = searchTerm
+    ? (data || []).filter((article) =>
+        article.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : data;
 
   if (loading) return <p>loading...</p>;
   if (error) return <p>no articles found</p>;
@@ -35,6 +39,17 @@ export default function Articles() {
     <>
       {topic ? <h1>articles about {topic}</h1> : <h1>Articles</h1>}
       <div className="filter">
+        <label>
+          search:
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
+            onSubmit={handleChange}
+          />
+        </label>
         <label>
           sort by{" "}
           <select name="sort_by" value={sortBy} onChange={handleChange}>
