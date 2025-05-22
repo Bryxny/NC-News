@@ -1,22 +1,34 @@
 import CommentCard from "./CommentCard";
 import { useState } from "react";
+import { fetchComments } from "../utils/api";
+import { useDataFetch } from "../hooks/useDataFetch";
+import PostComment from "./PostComment";
 
-export default function Comments({
-  count,
-  comments,
-  loading,
-  updateComments,
-  setShowComments,
-  showComments,
-}) {
-  if (!count) return <p>no comments</p>;
+export default function Comments({ article_id }) {
+  const [showComments, setShowComments] = useState(false);
+  const {
+    data: comments,
+    loading,
+    error,
+    refetch,
+  } = useDataFetch(fetchComments, {
+    limit: 1000,
+    article_id,
+  });
+
+  const updateComments = () => {
+    refetch();
+  };
+
   if (loading) return <p>Loading comments...</p>;
+  if (error) return <p>error loading comments...</p>;
 
   return (
-    <>
-      <p>{count} comments</p>
+    <div className="comment-section">
+      <p>{comments.length} comments</p>
       {showComments ? (
         <>
+          <PostComment updateComments={updateComments} />
           <button
             onClick={() => {
               setShowComments(false);
@@ -43,6 +55,6 @@ export default function Comments({
           Show All Comments
         </button>
       )}
-    </>
+    </div>
   );
 }

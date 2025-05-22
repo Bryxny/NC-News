@@ -12,10 +12,13 @@ export default function CommentCard({ comment, updateComments }) {
     deleteComment(comment.comment_id)
       .then(() => {
         setLoading(false);
-        updateComments(false, true);
+        updateComments();
       })
       .catch(() => {
         return <p>something went wrong</p>;
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
   return (

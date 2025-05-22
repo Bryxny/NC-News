@@ -104,13 +104,19 @@ a:hover {
 .article-body {
   text-align: left;
 }
-
+.article-detail img {
+  max-height: 600px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 .comment-box {
   width: 100vw;
   background-color: rgb(229, 229, 229);
   padding: 0;
   margin: 0;
-  height: auto;
+  min-height: 500px;
 }
 
 .comment-section {

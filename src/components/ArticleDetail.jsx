@@ -1,28 +1,29 @@
 import dayjs from "dayjs";
-import Comments from "./Comments";
 import Voting from "./Voting";
-import PostComment from "./PostComment";
-import { useState, useEffect } from "react";
-import { fetchComments } from "../utils/api";
-import { useDataFetch } from "../hooks/useDataFetch";
+import { UserContext } from "../contexts/UserContext";
+import { useContext, useState } from "react";
+import { deleteArticle } from "../utils/api";
+import { useNavigate } from "react-router";
 
 export default function ArticleDetail({ article }) {
-  const [showComments, setShowComments] = useState(false);
-  const {
-    data: comments,
-    loading,
-    error,
-    refetch,
-  } = useDataFetch(fetchComments, {
-    limit: 1000,
-    article_id: article.article_id,
-  });
+  const { user } = useContext(UserContext);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  if (loading) return <p>loading...</p>;
-  if (error) return <p>no articles found</p>;
-
-  const updateComments = () => {
-    refetch();
+  const handleDelete = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    deleteArticle(article.article_id)
+      .then(() => {
+        navigate("/articles");
+        setError(null);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError("Something went wrong ): please try again");
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -36,19 +37,16 @@ export default function ArticleDetail({ article }) {
         <img src={article.article_img_url}></img>
         <p className="article-body">{article.body}</p>
         <Voting article={article} />
-      </div>
-      <div className="comment-box">
-        <div className="comment-section">
-          <PostComment updateComments={updateComments} />
-          <Comments
-            comments={comments}
-            count={comments.length}
-            loading={loading}
-            updateComments={updateComments}
-            showComments={showComments}
-            setShowComments={setShowComments}
-          />
-        </div>
+        {user && user.username === article.author ? (
+          <button
+            className="delete-button"
+            onClick={handleDelete}
+            disabled={loading}
+          >
+            delete article
+          </button>
+        ) : null}
+        {error && <p>{error}</p>}
       </div>
     </>
   );

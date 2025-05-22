@@ -34,7 +34,10 @@ export default function NavBar() {
         </Link>
       </li>
       {user ? (
-        <li>profile</li>
+        <Link to={`/users/${user.username}`}>
+          {" "}
+          <li>profile</li>
+        </Link>
       ) : (
         <li>
           <Login></Login>

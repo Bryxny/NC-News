@@ -8,7 +8,7 @@ export const UserProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const login = (username) => {
-    fetchUser(username)
+    fetchUser({ username })
       .then((user) => {
         setUser(user);
         setError(null);

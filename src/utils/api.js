@@ -27,7 +27,8 @@ export const postComment = (article_id, body) => {
     .then((res) => res.data.comment);
 };
 
-export const fetchUser = (username) => {
+export const fetchUser = ({ username }) => {
+  console.log(username);
   return api.get(`/users/${username}`).then((response) => response.data.user);
 };
 
@@ -37,4 +38,17 @@ export const deleteComment = (comment_id) => {
 
 export const fetchTopics = () => {
   return api.get("/topics").then((response) => response.data.topics);
+};
+
+export const fetchUsers = () => {
+  return api.get("/users").then((response) => response.data.users);
+};
+
+export const postArticle = (body) => {
+  return api.post("/articles", body).then((res) => res.data.article);
+};
+
+export const deleteArticle = (article_id) => {
+  console.log(article_id);
+  return api.delete(`/articles/${article_id}`);
 };
