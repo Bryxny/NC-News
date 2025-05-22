@@ -4,20 +4,11 @@ const api = axios.create({
   baseURL: "https://nc-news-d9d7.onrender.com/api",
 });
 
-export const fetchArticles = (queryParams) => {
-  return api
-    .get("/articles?", { params: queryParams })
-    .then((response) => {
-      return response.data.articles;
-    })
-    .catch((err) => {
-      throw err;
-    });
-};
-
-export const fetchArticle = (article_id) => {
-  return api.get(`/articles/${article_id}`).then((response) => {
-    return response.data.article;
+export const fetchArticles = ({ queryParams, article_id }) => {
+  const endpoint = article_id ? `/articles/${article_id}` : "/articles";
+  console.log(article_id);
+  return api.get(endpoint, { params: queryParams }).then((response) => {
+    return article_id ? response.data.article : response.data.articles;
   });
 };
 

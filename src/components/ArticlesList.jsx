@@ -7,7 +7,7 @@ export default function ArticlesList({ articles }) {
       {articles.map((article) => {
         const article_id = article.article_id;
         return (
-          <Link to={`/articles/${article_id}`}>
+          <Link key={article_id} to={`/articles/${article_id}`}>
             <li className="article-card">
               <div className="article-text">
                 <p>{article.topic}</p>

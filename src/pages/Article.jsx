@@ -1,19 +1,18 @@
-import { fetchArticle } from "../utils/FetchData";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import ArticleDetail from "../components/ArticleDetail";
+import { useDataFetch } from "../hooks/useDataFetch";
+import { fetchArticles } from "../utils/FetchData";
 
 export default function Article() {
   const { article_id } = useParams();
-  const [article, setArticle] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const {
+    data: article,
+    loading,
+    error,
+  } = useDataFetch(fetchArticles, { article_id });
 
-  useEffect(() => {
-    fetchArticle(article_id).then((response) => {
-      setArticle(response);
-      setLoading(false);
-    });
-  }, [article_id]);
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>no articles found</p>;
 
-  return <>{loading ? <p>loading</p> : <ArticleDetail article={article} />}</>;
+  return <ArticleDetail article={article} />;
 }
