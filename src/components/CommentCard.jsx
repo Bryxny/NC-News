@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
-import { deleteComment } from "../utils/FetchData";
+import { deleteComment } from "../utils/api";
 
 export default function CommentCard({ comment, updateComments }) {
   const { user } = useContext(UserContext);

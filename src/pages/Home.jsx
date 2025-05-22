@@ -1,6 +1,6 @@
 import { useDataFetch } from "../hooks/useDataFetch";
 import ArticlesList from "../components/ArticlesList";
-import { fetchArticles } from "../utils/FetchData";
+import { fetchArticles } from "../utils/api.js";
 
 export default function Home() {
   const {

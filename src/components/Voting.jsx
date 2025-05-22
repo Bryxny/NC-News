@@ -1,4 +1,4 @@
-import { patchArticleVote } from "../utils/FetchData";
+import { patchArticleVote } from "../utils/api";
 import { useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useContext } from "react";
@@ -25,7 +25,6 @@ export default function Voting({ article }) {
       patchArticleVote(article.article_id, 2 * vote);
     }
   }
-  console.log(voteValue);
   return (
     <>
       <div className="votes-box">

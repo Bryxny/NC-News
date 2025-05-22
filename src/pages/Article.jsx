@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import ArticleDetail from "../components/ArticleDetail";
 import { useDataFetch } from "../hooks/useDataFetch";
-import { fetchArticles } from "../utils/FetchData";
+import { fetchArticles } from "../utils/api.js";
 
 export default function Article() {
   const { article_id } = useParams();

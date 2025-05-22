@@ -3,27 +3,27 @@ import Comments from "./Comments";
 import Voting from "./Voting";
 import PostComment from "./PostComment";
 import { useState, useEffect } from "react";
-import { fetchComments } from "../utils/FetchData";
+import { fetchComments } from "../utils/api";
+import { useDataFetch } from "../hooks/useDataFetch";
 
 export default function ArticleDetail({ article }) {
-  const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [commentCount, setCommentCount] = useState(article.comment_count);
   const [showComments, setShowComments] = useState(false);
+  const {
+    data: comments,
+    loading,
+    error,
+    refetch,
+  } = useDataFetch(fetchComments, {
+    limit: 1000,
+    article_id: article.article_id,
+  });
 
-  const updateComments = (newComment = false, deleted = false) => {
-    setLoading(true);
-    fetchComments(article.article_id).then((response) => {
-      setComments(response);
-      setLoading(false);
-      if (newComment) setCommentCount((prev) => prev + 1);
-      if (deleted) setCommentCount((prev) => prev - 1);
-    });
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>no articles found</p>;
+
+  const updateComments = () => {
+    refetch();
   };
-
-  useEffect(() => {
-    updateComments();
-  }, [article.article_id]);
 
   return (
     <>
@@ -42,7 +42,7 @@ export default function ArticleDetail({ article }) {
           <PostComment updateComments={updateComments} />
           <Comments
             comments={comments}
-            count={commentCount}
+            count={comments.length}
             loading={loading}
             updateComments={updateComments}
             showComments={showComments}

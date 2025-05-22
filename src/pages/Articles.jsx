@@ -1,7 +1,7 @@
 import { useDataFetch } from "../hooks/useDataFetch";
 import ArticlesList from "../components/ArticlesList";
 import { useSearchParams } from "react-router";
-import { fetchArticles } from "../utils/FetchData";
+import { fetchArticles } from "../utils/api.js";
 
 export default function Articles() {
   const [searchParams] = useSearchParams();

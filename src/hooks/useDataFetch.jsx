@@ -4,7 +4,7 @@ export function useDataFetch(fetchFunction, queryparams) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  useEffect(() => {
+  const fetchData = () => {
     setLoading(true);
     setError(false);
     fetchFunction(queryparams)
@@ -13,11 +13,14 @@ export function useDataFetch(fetchFunction, queryparams) {
         setData(response);
         setLoading(false);
       })
-      .catch((err) => {
+      .catch(() => {
         setError(true);
         setLoading(false);
       });
+  };
+  useEffect(() => {
+    fetchData();
   }, [JSON.stringify(queryparams)]);
 
-  return { data, loading, error };
+  return { data, loading, error, refetch: fetchData };
 }

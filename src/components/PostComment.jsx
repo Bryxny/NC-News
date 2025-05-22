@@ -1,6 +1,6 @@
 import { UserContext } from "../contexts/UserContext";
 import { useState, useContext } from "react";
-import { postComment } from "../utils/FetchData";
+import { postComment } from "../utils/api";
 import { useParams } from "react-router";
 
 export default function PostComment({ updateComments }) {
@@ -9,7 +9,6 @@ export default function PostComment({ updateComments }) {
   const [comment, setComment] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!user) return setError("You must be logged in to post a comment");
@@ -21,7 +20,7 @@ export default function PostComment({ updateComments }) {
       .then(() => {
         setComment("");
         setError("");
-        updateComments(true);
+        updateComments();
       })
       .catch(() => {
         return setError("Something went wrong ): please try again");

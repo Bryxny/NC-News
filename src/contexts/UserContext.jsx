@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { fetchUser } from "../utils/FetchData";
+import { fetchUser } from "../utils/api";
 
 export const UserContext = createContext();
 
