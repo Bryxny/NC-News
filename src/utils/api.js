@@ -35,6 +35,6 @@ export const deleteComment = (comment_id) => {
   return api.delete(`/comments/${comment_id}`);
 };
 
-export const fetchTopics = ({}) => {
+export const fetchTopics = () => {
   return api.get("/topics").then((response) => response.data.topics);
 };

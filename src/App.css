@@ -180,9 +180,9 @@ a:hover {
 
 .search img {
   margin-right: 5px;
-  margin-top: 2px; /* adjust value as needed */
+  margin-top: 2px;
   position: relative;
-  top: 2px; /* alternate method */
+  top: 2px;
 }
 .filter {
   display: flex;
@@ -194,4 +194,68 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
   padding: 0 1rem;
+}
+
+.topic-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topic-card {
+  position: relative;
+  width: 550px;
+  height: 250px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.topic-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: 8px;
+  opacity: 0.6;
+  transition-duration: 0.3s;
+}
+.topic-card:hover img {
+  opacity: 1;
+}
+.topic-card:hover h3 {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 3px 3px 3px rgb(0, 0, 0);
+}
+.topic-card:hover p {
+  opacity: 0;
+}
+
+.topic-text {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.topic-text h3 {
+  font-size: 3rem;
+  color: rgb(0, 0, 0);
+}
+
+.topic-text p {
+  font-size: 1rem;
+  color: rgb(26, 26, 26);
+  margin-top: -20px;
 }
