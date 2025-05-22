@@ -184,3 +184,14 @@ a:hover {
   position: relative;
   top: 2px; /* alternate method */
 }
+.filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  gap: 30px;
+  max-width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
