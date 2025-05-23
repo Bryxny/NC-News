@@ -25,7 +25,9 @@ export default function Comments({ article_id }) {
 
   return (
     <div className="comment-section">
-      <p>{comments.length} comments</p>
+      <p>
+        {comments.length} {comments.length === 1 ? " comment" : "comments"}
+      </p>
       {showComments ? (
         <>
           <PostComment updateComments={updateComments} />

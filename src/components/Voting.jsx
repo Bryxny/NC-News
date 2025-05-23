@@ -2,6 +2,7 @@ import { patchArticleVote } from "../utils/api";
 import { useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useContext } from "react";
+import styles from "../styles/Articles.module.css";
 export default function Voting({ article }) {
   const [votes, setVotes] = useState(article.votes);
   const [currentVote, setCurrentVote] = useState(0);
@@ -19,10 +20,9 @@ export default function Voting({ article }) {
   if (!user) return <p>{votes} votes - sign in to vote</p>;
   return (
     <>
-      <div className="votes-box">
-        <p>{votes} votes</p>
+      <div className={styles.voteBox}>
         <button
-          className={currentVote === 1 ? "clicked" : "unclicked"}
+          className={currentVote === 1 ? styles.clicked : styles.unclicked}
           onClick={() => {
             handleVote(1);
           }}
@@ -30,14 +30,15 @@ export default function Voting({ article }) {
           upvote
         </button>
         <button
-          className={currentVote === -1 ? "clicked" : "unclicked"}
+          className={currentVote === -1 ? styles.clicked : styles.unclicked}
           onClick={() => {
             handleVote(-1);
           }}
         >
           downvote
         </button>
-        {currentVote ? <p className="voted">voted!</p> : null}
+        {currentVote ? <p className="voted">voted!</p> : null}{" "}
+        <p>{votes} votes</p>
       </div>
     </>
   );

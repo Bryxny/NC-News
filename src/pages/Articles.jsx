@@ -3,6 +3,7 @@ import ArticlesList from "../components/ArticlesList";
 import { useSearchParams } from "react-router";
 import { useState } from "react";
 import { fetchArticles } from "../utils/api.js";
+import styles from "../styles/Articles.module.css";
 
 export default function Articles() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -37,8 +38,14 @@ export default function Articles() {
 
   return (
     <>
-      {topic ? <h1>articles about {topic}</h1> : <h1>Articles</h1>}
-      <div className="filter">
+      {topic ? (
+        <h2 className={styles.header}>
+          {topic[0].toUpperCase() + topic.slice(1)}
+        </h2>
+      ) : (
+        <h2 className={styles.header}> All Articles</h2>
+      )}
+      <div className={styles.filter}>
         <label>
           search:
           <input
@@ -51,7 +58,7 @@ export default function Articles() {
           />
         </label>
         <label>
-          sort by{" "}
+          sort by:
           <select name="sort_by" value={sortBy} onChange={handleChange}>
             <option value="created_at">Date</option>
             <option value="comment_count">Comment Count</option>
@@ -59,7 +66,7 @@ export default function Articles() {
           </select>
         </label>
         <label>
-          order by
+          order by:
           <select name="order_by" value={orderBy} onChange={handleChange}>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>

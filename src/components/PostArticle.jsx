@@ -2,6 +2,8 @@ import { useState } from "react";
 import { fetchTopics } from "../utils/api";
 import { useDataFetch } from "../hooks/useDataFetch";
 import { postArticle } from "../utils/api";
+import styles from "../styles/Articles.module.css";
+
 export default function PostArticle({ author, refetch }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -47,8 +49,8 @@ export default function PostArticle({ author, refetch }) {
   };
   return (
     <>
-      <h2>Post New Article</h2>
-      <form className="post-article" onSubmit={handleSubmit}>
+      <h3 className={styles.header}>Post New Article</h3>
+      <form className={styles.postArticle} onSubmit={handleSubmit}>
         <label>
           Topic:{" "}
           <select name="topic" onChange={handleChange}>

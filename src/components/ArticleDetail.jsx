@@ -4,6 +4,7 @@ import { UserContext } from "../contexts/UserContext";
 import { useContext, useState } from "react";
 import { deleteArticle } from "../utils/api";
 import { useNavigate } from "react-router";
+import styles from "../styles/Articles.module.css";
 
 export default function ArticleDetail({ article }) {
   const { user } = useContext(UserContext);
@@ -28,14 +29,14 @@ export default function ArticleDetail({ article }) {
 
   return (
     <>
-      <div className="article-detail">
-        <h2>{article.title}</h2>
-        <p className="article-body">written by {article.author}</p>
-        <p className="article-body">
+      <div className={styles.detailCard}>
+        <p className={styles.detailSubheader}>Written by {article.author}</p>
+        <h2 className={styles.detailHeader}>{article.title}</h2>
+        <p className={styles.detailSubheader}>
           {dayjs(article.created_at).format("MMMM D, YYYY h:mm A")}
         </p>
         <img src={article.article_img_url}></img>
-        <p className="article-body">{article.body}</p>
+        <p className={styles.detailBody}>{article.body}</p>
         <Voting article={article} />
         {user && user.username === article.author ? (
           <button

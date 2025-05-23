@@ -49,6 +49,5 @@ export const postArticle = (body) => {
 };
 
 export const deleteArticle = (article_id) => {
-  console.log(article_id);
   return api.delete(`/articles/${article_id}`);
 };

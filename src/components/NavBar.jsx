@@ -18,10 +18,7 @@ export default function NavBar() {
       <div className={styles.left}>
         <li className={styles.navItem}>
           <NavLink to="/">
-            <img
-              src="public/NCLogo.webp"
-              className={`${styles.logo} ${styles.hideOnSmall}`}
-            />
+            <img src="public/NCLogo.webp" className={`${styles.logo}`} />
           </NavLink>
         </li>
       </div>

@@ -1,6 +1,7 @@
 import { fetchTopics } from "../utils/api";
 import { Link } from "react-router";
 import { useDataFetch } from "../hooks/useDataFetch";
+import styles from "../styles/Articles.module.css";
 
 export default function Topics() {
   const { data: topics, loading, error } = useDataFetch(fetchTopics);
@@ -10,13 +11,13 @@ export default function Topics() {
 
   return (
     <>
-      <h1>topics</h1>
-      <ul className="topic-list">
+      <h2 className={styles.header}>All Topics</h2>
+      <ul className={styles.topicList}>
         {topics.map((topic) => {
           return (
             <Link key={topic.slug} to={`/articles?topic=${topic.slug}`}>
-              <li className="topic-card">
-                <div className="topic-text">
+              <li className={styles.topicCard}>
+                <div className={styles.topicText}>
                   <h3>{topic.slug}</h3>
                   <p>{topic.description}</p>
                 </div>{" "}

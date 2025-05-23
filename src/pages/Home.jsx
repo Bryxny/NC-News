@@ -2,6 +2,7 @@ import { useDataFetch } from "../hooks/useDataFetch";
 import ArticlesList from "../components/ArticlesList";
 import { fetchArticles, fetchUsers } from "../utils/api.js";
 import { Link } from "react-router";
+import styles from "../styles/Articles.module.css";
 
 export default function Home() {
   const {
@@ -21,10 +22,10 @@ export default function Home() {
 
   return (
     <>
-      <h1>Recent Articles</h1>
+      <h2 className={styles.header}>Recent Articles</h2>
       <ArticlesList articles={articles} />
-      <h2>Our Writers</h2>
-      <ul className="writers">
+      <h2 className={styles.header}>Our Writers</h2>
+      <ul className={styles.writers}>
         {users.map((user) => {
           return (
             <Link to={`users/${user.username}`} key={user.username}>
