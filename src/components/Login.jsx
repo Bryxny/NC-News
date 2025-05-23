@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
+import styles from "../styles/NavBar.module.css";
 
 export default function Login() {
   const { error, login } = useContext(UserContext);
@@ -11,9 +12,9 @@ export default function Login() {
     login(username);
   };
   return (
-    <div className="login-container">
+    <div className={styles.loginWrapper}>
       {isClicked ? (
-        <form className="login-dropdown" onSubmit={handleLogin}>
+        <form onSubmit={handleLogin}>
           <label htmlFor="username">Username:</label>
           <input
             name="username"
