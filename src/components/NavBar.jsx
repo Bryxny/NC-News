@@ -18,7 +18,10 @@ export default function NavBar() {
       <div className={styles.left}>
         <li className={styles.navItem}>
           <NavLink to="/">
-            <img src="public/NCLogo.webp" className={`${styles.logo}`} />
+            <img
+              src="https://ddduwcteueqxpgcqosmk.supabase.co/storage/v1/object/sign/icons/NCLogo.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzkyN2QxZWZiLWE3OWUtNDg1Ny04ODNmLTRjMTAwM2I4MmJhZCJ9.eyJ1cmwiOiJpY29ucy9OQ0xvZ28ud2VicCIsImlhdCI6MTc0ODAxNjA4NywiZXhwIjoxNzc5NTUyMDg3fQ.ZphqJTN6xv5qFoBOjjxjIZrlg32bWjISNnc_e_8d9EY"
+              className={`${styles.logo}`}
+            />
           </NavLink>
         </li>
       </div>
@@ -54,7 +57,7 @@ export default function NavBar() {
         <li className={styles.navItem}>
           <NavLink to="/articles" className={styles.link}>
             <img
-              src="public/search-icon-2048x2048-cmujl7en.png"
+              src="https://ddduwcteueqxpgcqosmk.supabase.co/storage/v1/object/sign/icons/search-icon-2048x2048-cmujl7en.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzkyN2QxZWZiLWE3OWUtNDg1Ny04ODNmLTRjMTAwM2I4MmJhZCJ9.eyJ1cmwiOiJpY29ucy9zZWFyY2gtaWNvbi0yMDQ4eDIwNDgtY211amw3ZW4ucG5nIiwiaWF0IjoxNzQ4MDE2MTA5LCJleHAiOjE3Nzk1NTIxMDl9.UJj6nZL_fm0HYGimG-nKhbk2W_oMSALzTHVVlfLsQ-M"
               className={styles.img}
             />
           </NavLink>
