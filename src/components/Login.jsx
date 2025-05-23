@@ -4,7 +4,7 @@ import { UserContext } from "../contexts/UserContext";
 export default function Login() {
   const { error, login } = useContext(UserContext);
   const [isClicked, setIsClicked] = useState(false);
-  const [username, setUsername] = useState("grumpy19");
+  const [username, setUsername] = useState("Beary19");
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ export default function Login() {
           <input
             name="username"
             type="text"
-            defaultValue="grumpy19"
+            defaultValue={username}
             onChange={(e) => {
               setUsername(e.target.value);
             }}

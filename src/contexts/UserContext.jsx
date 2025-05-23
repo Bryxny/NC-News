@@ -8,6 +8,9 @@ export const UserProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const login = (username) => {
+    if (username !== "Beary19") {
+      return setError("access denied");
+    }
     fetchUser({ username })
       .then((user) => {
         setUser(user);
