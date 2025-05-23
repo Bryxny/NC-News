@@ -2,14 +2,15 @@ import { Link } from "react-router";
 import Login from "./Login";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
+import "../styles/NavBar.css";
 
 export default function NavBar() {
   const { user } = useContext(UserContext);
   return (
     <ul className="nav-bar">
-      <li>
+      <li className="no-hover">
         <Link to="/">
-          <img src="src/assets/25694.png" height="30px" />
+          <img src="src/assets/NCLogo.webp" />
         </Link>
       </li>
       <li>
