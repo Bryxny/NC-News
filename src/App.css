@@ -11,6 +11,21 @@ body {
   width: 100%;
 }
 
+select,
+input,
+button {
+  font-family: inherit;
+}
+.header {
+  margin-top: 40px;
+}
+
+.loading {
+  margin-top: 200px;
+  height: 100px;
+  width: auto;
+}
+
 .comment-box {
   width: 100vw;
   background-color: rgb(229, 229, 229);

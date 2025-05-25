@@ -48,11 +48,16 @@ export default function NavBar() {
           <NavLink to="/articles?topic=cooking">Cooking</NavLink>
         </li>
         <li
-          className={`${styles.navItem} ${styles.hideOnSmall} ${styles.link} ${
+          className={`${styles.navItem} ${styles.link} ${
             path === "/topics" ? styles.active : ""
           }`}
         >
-          <NavLink to="/topics">More</NavLink>
+          <NavLink to="/topics">
+            <img
+              src="https://ddduwcteueqxpgcqosmk.supabase.co/storage/v1/object/sign/icons/menu-icon-24.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzkyN2QxZWZiLWE3OWUtNDg1Ny04ODNmLTRjMTAwM2I4MmJhZCJ9.eyJ1cmwiOiJpY29ucy9tZW51LWljb24tMjQucG5nIiwiaWF0IjoxNzQ4MTg3OTc0LCJleHAiOjE3Nzk3MjM5NzR9.0Ii_z-zLKnIv0YIGlvKHFJ__R1ce28YHCl3J2YmQnnA"
+              className={styles.menuimg}
+            />
+          </NavLink>
         </li>
         <li className={styles.navItem}>
           <NavLink to="/articles" className={styles.link}>

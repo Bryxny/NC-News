@@ -12,10 +12,10 @@ export default function Login() {
     login(username);
   };
   return (
-    <div className={styles.loginWrapper}>
+    <div>
       {isClicked ? (
-        <form onSubmit={handleLogin}>
-          <label htmlFor="username">Username:</label>
+        <form className={styles.loginWrapper} onSubmit={handleLogin}>
+          <label htmlFor="username">Username: </label>
           <input
             name="username"
             type="text"
@@ -24,7 +24,7 @@ export default function Login() {
               setUsername(e.target.value);
             }}
           ></input>
-          <button type="submit">submit</button>{" "}
+          <button type="submit">login</button>{" "}
           {error && <p className="error">{error}</p>}
         </form>
       ) : (
@@ -32,6 +32,7 @@ export default function Login() {
           onClick={() => {
             setIsClicked(!isClicked);
           }}
+          className={`${styles.navItem} ${styles.link}`}
         >
           login
         </a>

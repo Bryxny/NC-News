@@ -8,6 +8,7 @@
   padding: 0;
   width: 100%;
   border-bottom: 4px solid#16202a;
+  position: relative;
 }
 
 .center {
@@ -27,6 +28,7 @@
   justify-content: flex-end;
   margin-right: 50px;
   margin-left: 30px;
+  position: relative;
 }
 
 .left {
@@ -34,8 +36,13 @@
   justify-content: flex-start;
 }
 .img {
-  height: 20px;
+  height: 19px;
   width: auto;
+}
+.menuimg {
+  height: 17px;
+  width: auto;
+  background-color: transparent;
 }
 
 .logo {
@@ -71,9 +78,11 @@ a:hover {
 .active {
   border-bottom: 3px solid #f3a363;
 }
+
 @media (max-width: 900px) {
   .center {
     gap: 3em;
+    margin: 0;
   }
 }
 
@@ -84,5 +93,44 @@ a:hover {
   .center {
     justify-content: space-evenly;
     flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
   }
+  .loginWrapper {
+    transform: translateX(-56%);
+    background-color: #fffcf9;
+  }
+  .loginWrapper input {
+    width: 70px;
+  }
+}
+
+.loginWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.loginWrapper button {
+  background-color: #299d8f;
+  color: #fffcf9;
+  border: transparent;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.loginWrapper button:hover {
+  background-color: #f3a363;
+}
+
+.loginWrapper input {
+  border: 2px solid #f3a363;
+  border-radius: 20px;
+  padding: 2px;
+  padding-left: 10px;
 }

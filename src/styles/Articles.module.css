@@ -232,60 +232,28 @@
 }
 
 .voteBox {
-  width: 100%;
+  width: 120px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 1rem;
-  gap: 20px;
+  gap: 10px;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 20px;
 }
 
+.voteBox img,
 .voteBox button {
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: rem;
-  background-color: #e76f51;
+  height: 30px;
+  background-color: transparent;
   border: transparent;
-  height: 40px;
-  padding: 0 20px;
-  color: white;
-}
-.voteBox button.clicked {
-  background-color: #f5ad91;
-  color: #c75235;
 }
 
 .voteBox p {
   font-size: 1rem;
-}
-
-.profile {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  max-width: 820px;
-  margin: 40px auto 0 auto;
-  height: auto;
-  padding: 0 1rem;
-}
-
-.profileIcon {
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
-.profile h3,
-.profile h2 {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .postArticle {
