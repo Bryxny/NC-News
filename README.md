@@ -1,12 +1,41 @@
-# React + Vite
+# NC News Seeding
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a news website built with react.js that fetches and displays articles from a backend API. Users can -
 
-Currently, two official plugins are available:
+- Browse a list of articles
+- Sort by topic, date, comment count, and votes.
+- Search for the title of an article.
+- View and add comments
+- Upvote or downvote an article
+- Post an article
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Live Demo:** https://nc-bears.netlify.app/
 
-## Expanding the ESLint configuration
+**Backend Repository:** https://github.com/Bryxny/NC-News-BE
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies Used
+
+- React.js
+- React Router
+- Axios
+- CSS
+
+## Installation
+
+Run the following commands in your terminal
+
+`git clone https://github.com/Bryxny/nc-news-project.git`
+
+`npm install`
+
+`npm run dev`
+
+## Dependencies
+
+This project requires a minimum of
+
+Node.js v23.8.0
+
+## Additional Info
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
