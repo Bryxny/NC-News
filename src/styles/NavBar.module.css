@@ -48,6 +48,7 @@
 .logo {
   max-height: 70px;
   width: auto;
+  padding-left: 10px;
 }
 
 .icon {
@@ -79,13 +80,6 @@ a:hover {
   border-bottom: 3px solid #f3a363;
 }
 
-@media (max-width: 900px) {
-  .center {
-    gap: 3em;
-    margin: 0;
-  }
-}
-
 @media (max-width: 700px) {
   .hideOnSmall {
     display: none;
@@ -98,8 +92,9 @@ a:hover {
     padding-left: 20px;
   }
   .loginWrapper {
-    transform: translateX(-56%);
+    transform: translateX(-50%);
     background-color: #fffcf9;
+    padding-left: 25px;
   }
   .loginWrapper input {
     width: 70px;

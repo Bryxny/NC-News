@@ -3,6 +3,7 @@ import { useState } from "react";
 import { fetchComments } from "../utils/api";
 import { useDataFetch } from "../hooks/useDataFetch";
 import PostComment from "./PostComment";
+import styles from "../styles/Comments.module.css";
 
 export default function Comments({ article_id }) {
   const [showComments, setShowComments] = useState(false);
@@ -24,39 +25,41 @@ export default function Comments({ article_id }) {
   if (error) return <p>error loading comments...</p>;
 
   return (
-    <div className="comment-section">
-      <p>
-        {comments.length} {comments.length === 1 ? " comment" : "comments"}
-      </p>
-      {showComments ? (
-        <>
-          <PostComment updateComments={updateComments} />
+    <div className={styles.commentBox}>
+      <div className={styles.commentSection}>
+        <p>
+          {comments.length} {comments.length === 1 ? " comment" : "comments"}
+        </p>
+        {showComments ? (
+          <>
+            <button
+              onClick={() => {
+                setShowComments(false);
+              }}
+            >
+              Hide Comments
+            </button>
+            <PostComment updateComments={updateComments} />
+            {comments.map((comment) => {
+              return (
+                <CommentCard
+                  key={comment.comment_id}
+                  comment={comment}
+                  updateComments={updateComments}
+                />
+              );
+            })}
+          </>
+        ) : (
           <button
             onClick={() => {
-              setShowComments(false);
+              setShowComments(true);
             }}
           >
-            Hide Comments
+            Show All Comments
           </button>
-          {comments.map((comment) => {
-            return (
-              <CommentCard
-                key={comment.comment_id}
-                comment={comment}
-                updateComments={updateComments}
-              />
-            );
-          })}
-        </>
-      ) : (
-        <button
-          onClick={() => {
-            setShowComments(true);
-          }}
-        >
-          Show All Comments
-        </button>
-      )}
+        )}
+      </div>
     </div>
   );
 }

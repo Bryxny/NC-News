@@ -24,9 +24,8 @@ export default function Article() {
   return (
     <>
       <ArticleDetail article={article} />
-      <div className="comment-box">
-        <Comments article_id={article_id} />
-      </div>
+
+      <Comments article_id={article_id} />
     </>
   );
 }

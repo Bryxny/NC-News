@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { deleteComment } from "../utils/api";
+import styles from "../styles/Comments.module.css";
 
 export default function CommentCard({ comment, updateComments }) {
   const { user } = useContext(UserContext);
@@ -22,7 +23,7 @@ export default function CommentCard({ comment, updateComments }) {
       });
   };
   return (
-    <div className="comment-card">
+    <div className={styles.commentCard}>
       <p>{comment.author}</p>
       <p>{comment.body}</p>
       <p>{comment.votes} votes </p>

@@ -1,0 +1,51 @@
+.commentBox {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  min-height: 500px;
+  border-top: 3px solid #16202a;
+  padding-top: 20px;
+}
+
+.commentSection {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commentSection button {
+  align-self: center;
+  width: 150px;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #f3a363;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+}
+
+.commentSection button:hover {
+  background-color: #299d8f;
+}
+
+.commentCard {
+  border-bottom: 2px solid #797979;
+  text-align: left;
+}
+.commentForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commentForm textarea {
+  width: 300px;
+  height: 100px;
+  padding: 8px; /* adds spacing around text */
+  box-sizing: border-box; /* ensures padding doesn't increase the size */
+  resize: none; /* optional: disables manual resizing */
+}

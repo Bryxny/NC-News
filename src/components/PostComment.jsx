@@ -2,6 +2,7 @@ import { UserContext } from "../contexts/UserContext";
 import { useState, useContext } from "react";
 import { postComment } from "../utils/api";
 import { useParams } from "react-router";
+import styles from "../styles/Comments.module.css";
 
 export default function PostComment({ updateComments }) {
   const { article_id } = useParams();
@@ -32,9 +33,10 @@ export default function PostComment({ updateComments }) {
   };
 
   return (
-    <form className="comment-form" onSubmit={handleSubmit}>
+    <form className={styles.commentForm} onSubmit={handleSubmit}>
       <label htmlFor="comment" />
-      <input
+
+      <textarea
         type="text"
         name="comment"
         value={comment}
@@ -42,7 +44,8 @@ export default function PostComment({ updateComments }) {
           setComment(e.target.value);
         }}
         disabled={loading}
-      ></input>
+        placeholder="Enter your comment"
+      ></textarea>
       <button type="submit" className="submit" disabled={loading}>
         Post Comment
       </button>
