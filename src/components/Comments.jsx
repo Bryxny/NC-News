@@ -33,6 +33,7 @@ export default function Comments({ article_id }) {
         {showComments ? (
           <>
             <button
+              className={styles.commentButton}
               onClick={() => {
                 setShowComments(false);
               }}
@@ -52,6 +53,7 @@ export default function Comments({ article_id }) {
           </>
         ) : (
           <button
+            className={styles.commentButton}
             onClick={() => {
               setShowComments(true);
             }}

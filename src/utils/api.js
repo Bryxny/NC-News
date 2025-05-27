@@ -28,7 +28,6 @@ export const postComment = (article_id, body) => {
 };
 
 export const fetchUser = ({ username }) => {
-  console.log(username);
   return api.get(`/users/${username}`).then((response) => response.data.user);
 };
 

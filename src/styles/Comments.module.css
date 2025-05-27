@@ -16,7 +16,7 @@
   gap: 10px;
 }
 
-.commentSection button {
+.commentButton {
   align-self: center;
   width: 150px;
   border: none;
@@ -28,7 +28,7 @@
   padding: 10px;
 }
 
-.commentSection button:hover {
+.commentButton:hover {
   background-color: #299d8f;
 }
 
@@ -45,7 +45,27 @@
 .commentForm textarea {
   width: 300px;
   height: 100px;
-  padding: 8px; /* adds spacing around text */
-  box-sizing: border-box; /* ensures padding doesn't increase the size */
-  resize: none; /* optional: disables manual resizing */
+  padding: 8px;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.commentTop {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 18px;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: normal;
+}
+
+.commenter {
+  height: 40px;
+  width: 40px;
+  border: 2px solid #16202a;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background-color: #fffcf9;
 }
