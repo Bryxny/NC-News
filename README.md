@@ -1,4 +1,4 @@
-# NC News Seeding
+# NC News
 
 This is a news website built with react.js that fetches and displays articles from a backend API. Users can -
 
